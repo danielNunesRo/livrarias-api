@@ -1,10 +1,22 @@
 package com.daniel.biblioteca.DTO;
 
-public class UserDTO {
+import java.io.Serializable;
+
+import org.springframework.hateoas.RepresentationModel;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.dozermapper.core.Mapping;
+
+public class UserDTO extends RepresentationModel<UserDTO> implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	@Mapping("id")
+	@JsonProperty("id")
 	private Long id;
-    private String firstName;
-    private String lastName;
+	@JsonProperty("first_name")
+	private String firstName;
+	@JsonProperty("last_name")
+	private String lastName;
     private String email;
 
     public UserDTO() {

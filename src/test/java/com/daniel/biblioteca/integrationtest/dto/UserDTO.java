@@ -1,42 +1,19 @@
-package com.daniel.biblioteca.models;
+package com.daniel.biblioteca.integrationtest.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+public class UserDTO implements Serializable {
 
-@Entity
-@Table(name="users")
-public class User implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	
-	@Column(name = "first_name", nullable = false)
+	private Long id;
 	private String firstName;
-	@Column(name = "last_name", nullable = false)
 	private String lastName;
-	@Column(nullable = false, unique = true)
 	private String email;
 	
-	public User() {
+	public UserDTO() {
 		
-	}
-
-	public User(Long id, String firstName, String lastName, String email) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
 	}
 
 	public Long getId() {
@@ -84,11 +61,10 @@ public class User implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		UserDTO other = (UserDTO) obj;
 		return Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName)
 				&& Objects.equals(id, other.id) && Objects.equals(lastName, other.lastName);
 	}
-	
 	
 	
 	
