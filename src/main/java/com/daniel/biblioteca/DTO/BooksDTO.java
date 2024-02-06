@@ -1,15 +1,28 @@
 package com.daniel.biblioteca.DTO;
 
-public class BooksDTO {
-	 	private Long id;
+import java.io.Serializable;
+
+import org.springframework.hateoas.RepresentationModel;
+
+import com.daniel.biblioteca.models.BookStatus;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.dozermapper.core.Mapping;
+
+public class BooksDTO extends RepresentationModel<UserDTO> implements Serializable {
+	 	
+		private static final long serialVersionUID = 1L;
+		
+		@Mapping("id")
+		@JsonProperty("id")
+		private Long id;
 	    private String name;
 	    private String author;
-	    private String status;
+	    private BookStatus status;
 
 	    public BooksDTO() {
 	    }
 
-	    public BooksDTO(Long id, String name, String author, String status) {
+	    public BooksDTO(Long id, String name, String author, BookStatus status) {
 	        this.id = id;
 	        this.name = name;
 	        this.author = author;
@@ -40,11 +53,13 @@ public class BooksDTO {
 	        this.author = author;
 	    }
 
-	    public String getStatus() {
-	        return status;
-	    }
+		public BookStatus getStatus() {
+			return status;
+		}
 
-	    public void setStatus(String status) {
-	        this.status = status;
-	    }
+		public void setStatus(BookStatus status) {
+			this.status = status;
+		}
+
+	   
 }

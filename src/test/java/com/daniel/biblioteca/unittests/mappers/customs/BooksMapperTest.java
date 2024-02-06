@@ -28,19 +28,19 @@ public class BooksMapperTest {
         assertEquals(book.getId(), dto.getId());
         assertEquals(book.getName(), dto.getName());
         assertEquals(book.getAuthor(), dto.getAuthor());
-        assertEquals(book.getStatus().toString(), dto.getStatus());
+        assertEquals(book.getStatus(), dto.getStatus());
     }
 	
 	@Test
     public void testConvertDtoToEntity() {
-        BooksDTO dto = new BooksDTO(1L, "A Game of Thrones", "George R. R. Martin", "AVAILABLE");
+        BooksDTO dto = new BooksDTO(1L, "A Game of Thrones", "George R. R. Martin", BookStatus.AVAILABLE);
 
         Books book = booksMapper.convertDtoToEntity(dto);
 
         assertEquals(dto.getId(), book.getId());
         assertEquals(dto.getName(), book.getName());
         assertEquals(dto.getAuthor(), book.getAuthor());
-        assertEquals(BookStatus.valueOf(dto.getStatus()), book.getStatus());
+        assertEquals(dto.getStatus(),book.getStatus());
     }
 	
 }

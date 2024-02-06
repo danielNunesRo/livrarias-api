@@ -16,7 +16,7 @@ public class BooksMapper {
 		vo.setId(book.getId());
 		vo.setName(book.getName());
 		vo.setAuthor(book.getAuthor());
-		vo.setStatus(book.getStatus().toString());
+		vo.setStatus(book.getStatus());
 		
 		return vo;
 	}
@@ -26,7 +26,7 @@ public class BooksMapper {
 		vo.setId(book.getId());
 		vo.setName(book.getName());
 		vo.setAuthor(book.getAuthor());
-		vo.setStatus(BookStatus.valueOf(book.getStatus()));
+		vo.setStatus(book.getStatus());
 		return vo;
 	}
 	
